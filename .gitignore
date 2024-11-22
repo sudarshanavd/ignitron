@@ -11,7 +11,7 @@ media/
 
 #excel 
 student_participations_details.xlsx
-users_data.xlsx
+users_data.xlsx 
 
 # Ignore the venv-django folder
 venv-django/
