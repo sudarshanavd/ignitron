@@ -8,7 +8,6 @@ __pycache__/
 # Ignore the Django static and media directories (if applicable)
 staticfiles/
 media/
-db.sqlite3
 
 #excel 
 student_participations_details.xlsx
