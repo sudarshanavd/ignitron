@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-$je^%c92+#2#k5@!gi9+3nfwf333tcg&linr+#*81$z5xf)q6a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','ignitron.pythonanywhere.com']
 
 
 # Application definition
@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'account',
     'coordinator',
     'judge',
-    'home'
     
 ]
 
@@ -55,6 +54,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Custom Middleware
+    'account.middleware.RedirectMiddleware',
 ]
 
 ROOT_URLCONF = 'ignitron.urls'
@@ -132,5 +133,7 @@ STATICFILE_URLS = [os.path.join(BASE_DIR,'static')]
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGOUT_REDIRECT_URL='login'
 
 

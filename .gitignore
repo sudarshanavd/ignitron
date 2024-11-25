@@ -9,7 +9,7 @@ __pycache__/
 staticfiles/
 media/
 
-#excel 
+#excel   
 student_participations_details.xlsx
 users_data.xlsx 
 

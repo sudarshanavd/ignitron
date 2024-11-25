@@ -1,0 +1,196 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    text-align: center;
+}
+h2, h3 {
+    color: #004aad;
+}
+
+/* General Menu Styling */
+.menu {
+background-color: #004aad;
+padding: 10px 20px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu ul {
+list-style: none;
+margin: 0;
+padding: 0;
+display: flex;
+justify-content: center;
+}
+
+.menu ul li {
+margin: 0 15px;
+}
+
+.menu ul li a {
+text-decoration: none;
+color: white;
+font-size: 16px;
+font-weight: bold;
+transition: color 0.3s ease;
+}
+
+.menu ul li a:hover {
+color: #ffcc00; /* Highlight color on hover */
+}
+
+/* Table container for scrolling */
+.table-container {
+    width: 90%; /* Adjusted for smaller screens */
+    max-width: 1200px; /* Maximum width to maintain good layout */
+    height: 60%; /* Fixed height for the table container */
+    max-height: 530px;
+    overflow: auto; /* Enables both horizontal and vertical scrolling */
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+/* Table styling */
+.styled-table {
+    width: 100%; /* Table width spans the container */
+    border-collapse: collapse;
+    table-layout: auto; /* Allows columns to adjust based on content */
+    font-size: 16px; /* Adjusted for better readability on smaller screens */
+}
+
+.styled-table th, .styled-table td {
+    padding: 17px; /* Reduced padding for better responsiveness */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    word-wrap: break-word; /* Allows content to wrap within columns */
+}
+
+/* Fixed Header */
+.styled-table thead th {
+    position: sticky;
+    top: 0; /* Sticks the header at the top of the table container */
+    background-color: #004aad;
+    color: white;
+    z-index: 2; /* Ensures the header appears above the body rows */
+}
+
+.styled-table thead tr {
+    border-bottom: 3px solid #333; /* Dark line after table heading row */
+}
+
+.styled-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.divider {
+    border-right: 1px solid #333;
+    padding-right: 10px;
+}
+
+/* Pagination styling */
+.pagination {
+    margin: 20px 0;
+    text-align: center;
+}
+.pagination a, .pagination span {
+    margin: 0 5px;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #004aad;
+    border: 1px solid #004aad;
+    border-radius: 5px;
+}
+.pagination .current-page {
+    font-weight: bold;
+    background-color: #004aad;
+    color: white;
+}
+
+/* Search bar styling */
+.search-bar {
+    margin-bottom: 20px;
+    text-align: center;
+}
+.search-bar input[type="text"] {
+    padding: 8px;
+    width: 90%;
+    max-width: 300px; /* Maximum width for search bar */
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.search-bar button {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #004aad;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.styled-table a {
+    text-decoration: none; 
+    color: #004aad; 
+}
+.styled-table a:hover {
+    text-decoration: underline; 
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) { /* Tablets and smaller */
+    .table-container {
+        height: 90%; /* Reduced height for smaller screens */
+    }
+
+    .menu ul {
+flex-direction: column;
+align-items: center;
+}
+.menu ul li {
+margin: 10px 0;
+}
+
+    .styled-table th, .styled-table td {
+        font-size: 14px; /* Reduced font size */
+        padding: 20px; /* Reduced padding */
+    }
+    .search-bar input[type="text"] {
+        max-width: 250px; /* Slightly narrower search bar */
+    }
+    .pagination a, .pagination span {
+        padding: 6px 11px; /* Reduced padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) { /* Mobile devices */
+    .table-container {
+        height: 80%; /* Further reduced height */
+        max-height: 490px;
+    }
+
+    .menu ul li a {
+        font-size: 14px;
+    }
+
+    .styled-table th, .styled-table td {
+        font-size: 13px; /* Reduced font size */
+        padding: 19px; /* Reduced padding */
+    }
+
+    .styled-table {
+        font-size: 12px; /* Adjusted font size for mobile */
+    }
+    .search-bar input[type="text"] {
+        width: 200px; /* Full-width search bar */
+        max-width: none; /* Remove maximum width for mobile */
+    }
+    .pagination a, .pagination span {
+        margin: 0 2px; /* Reduced margin for mobile */
+        padding: 5px 9px; /* Smaller buttons for pagination */
+    }
+} 

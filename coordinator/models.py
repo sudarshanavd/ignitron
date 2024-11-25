@@ -18,9 +18,6 @@ class StudentDetail(models.Model):
     participant_3 = models.CharField(max_length=100, blank=True, null=True)
     participant_4 = models.CharField(max_length=100, blank=True, null=True)
     
-    # Optional task description field
-    task = models.TextField(blank=True, null=True)
-    
     def clean(self):
         for field in ["team_name", "team_lead_name", "contact_number", "event_name", "institute_name", "district"]:
             if not getattr(self, field):

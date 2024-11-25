@@ -85,6 +85,50 @@
         .team-list a:hover {
             text-decoration: underline; 
         }
+        /* Responsive Adjustments */
+@media (max-width: 768px) { /* Tablets and smaller */
+    .team-list {
+        width: 95%;
+    }
+    .search-bar input[type="text"] {
+        width: 80%;
+    }
+    .pagination a, .pagination span {
+        padding: 5px 10px; /* Reduced padding for smaller screens */
+    }
+    .search-bar input[type="text"] {
+        width: 250px;
+    }
+}
+
+@media (max-width: 480px) { /* Mobile devices */
+    .team-list {
+        width: 100%;
+        margin: 10px auto; /* Reduced margin */
+    }
+    .team-list th, .team-list td {
+        padding: 8px 10px; /* Reduced padding for mobile */
+    }
+    .search-bar input[type="text"] {
+        width: 90%;
+        padding: 5px; /* Reduced padding for mobile */
+        font-size: 14px;
+    }
+    .search-bar button {
+        padding: 5px 10px; /* Reduced padding for mobile */
+        font-size: 14px;
+    }
+    .pagination {
+        margin: 10px 0; /* Reduced margin for mobile */
+    }
+    .pagination a, .pagination span {
+        margin: 0 2px; /* Reduced margin for mobile */
+        padding: 3px 8px; /* Reduced padding for mobile */
+    }
+    .search-bar input[type="text"] {
+        width: 200px;
+    }
+}
     </style>
 </head>
 <body>

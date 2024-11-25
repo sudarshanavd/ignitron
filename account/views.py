@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth.models import Group
 
+
 class CustomLoginView(LoginView):
     template_name = 'login.html'
 
@@ -52,3 +53,5 @@ class CustomLoginView(LoginView):
         # Display error message for invalid login
         messages.error(self.request, 'Invalid username or password.')
         return super().form_invalid(form)
+    
+

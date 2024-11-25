@@ -8,7 +8,6 @@ class Judge(models.Model):
     criteria2 = models.DecimalField(max_digits=5, decimal_places=2)
     criteria3 = models.DecimalField(max_digits=5, decimal_places=2)
     criteria4 = models.DecimalField(max_digits=5, decimal_places=2)
-    notes = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return f"{self.judge_name} - {self.team_name}"
