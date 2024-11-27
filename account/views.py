@@ -36,7 +36,7 @@ class CustomLoginView(LoginView):
                         'username': user.username
                     }))
                 elif role == 'admin' and user.is_staff:
-                    return redirect(reverse_lazy('e_admin:admin_home', kwargs={
+                    return redirect(reverse_lazy('e_admin:event_selection', kwargs={
                     'username': user.username
                 }))  # Redirect to Admin home page
                 else:

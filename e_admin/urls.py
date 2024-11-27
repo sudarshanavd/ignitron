@@ -1,9 +1,10 @@
-# e_admin/urls.py
 from django.urls import path
-from .views import AdminDetailView
+from .views import EventSelectionView, EventDetailView
 
-app_name = 'e_admin'
+app_name='e_admin'
 
 urlpatterns = [
-    path('<str:username>/home/', AdminDetailView.as_view(), name='admin_home'),  # Admin detail page
+    path('event-selection/<str:username>/', EventSelectionView.as_view(), name='event_selection'),
+    path('event-detail/<str:username>/<str:event_name>/', EventDetailView.as_view(), name='event_detail'),
 ]
+

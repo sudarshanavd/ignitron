@@ -1,0 +1,95 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/coordinator_detail.css' %}">  
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <title>Coordinator Student Details</title>    
+</head>
+<body>
+
+{% if user.is_authenticated %}
+<div class="menu">
+    <ul>
+        <li><a href="https://gmu.ac.in/public/ignitron/">Home</a></li>
+        <li><a href="https://gmu.ac.in/public/ignitron/About.html">Tech Crew</a></li>
+        <li><a href="#" onclick="document.getElementById('logout-form').submit(); return false;">Log Out</a></li>
+    </ul>
+</div>
+<form id="logout-form" action="{% url 'logout' %}" method="post" style="display: none;">
+    {% csrf_token %}
+</form>
+{% endif %}
+
+<!-- Coordinator Greeting -->
+<h2><div class="greeting">Hi, {{user.username}}</div></h2>
+
+<h3>Student Details for {{ event_name }}</h3>
+    
+<!-- Search Form -->
+<div class="search-bar">
+    <form method="get" action="">
+        <input type="text" name="q" placeholder="Search..." value="{{ query|default_if_none:'' }}" />
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+<!-- Student Details Table -->
+<div class="table-container">
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th class="divider">S.No.</th>
+                <th class="divider">Team Name</th>
+                <th class="divider">Team Lead Name</th>
+                <th class="divider">Contact Number</th>
+                <th class="divider">Institute Name</th>
+                <th class="divider">District</th>
+                <th class="divider">Participant 2</th>
+                <th class="divider">Participant 3</th>
+                <th class="divider">Participant 4</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in page_obj %}
+            <tr>
+                <td class="divider">{{ forloop.counter0|add:page_obj.start_index }}</td>
+                <td class="divider">{{ student.team_name }}</td>
+                <td class="divider">{{ student.team_lead_name }}</td>
+                <td class="divider">{{ student.contact_number }}</td>
+                <td class="divider">{{ student.institute_name }}</td>
+                <td class="divider">{{ student.district }}</td>
+                <td class="divider">{{ student.participant_2 }}</td>
+                <td class="divider">{{ student.participant_3 }}</td>
+                <td class="divider">{{ student.participant_4 }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="9">No results found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Pagination Controls -->
+<div class="pagination">
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}{% if query %}&q={{ query }}{% endif %}">Previous</a>
+    {% endif %}
+    {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+            <span class="current-page">{{ num }}</span>
+        {% else %}
+            <a href="?page={{ num }}{% if query %}&q={{ query }}{% endif %}">{{ num }}</a>
+        {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}{% if query %}&q={{ query }}{% endif %}">Next</a>
+    {% endif %}
+</div>
+
+</body>
+</html>
